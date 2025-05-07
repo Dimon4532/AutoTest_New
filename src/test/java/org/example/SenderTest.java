@@ -27,16 +27,16 @@ class SenderTest {
     @Test
     void testSendWithAllErrorsReported() {
         Sender sender = new Sender("example.com", "/api", "default body");
-        String result = sender.send("https://github.com", "/ViktoriiaBelousova/TestAQA", "body");
+        String result = sender.send("https://github.com", "/Dimon4532/AutoTest_New", "body");
 
         StringBuilder errors = new StringBuilder();
 
-        // Проверяем все условия и собираем ошибки "https://github.com", "/ViktoriiaBelousova/TestAQA", "body"));
+        // Проверяем все условия и собираем ошибки "https://github.com", "/Dimon4532/AutoTest_New", "body"));
         if (!result.contains("https://github.com")) {
             errors.append("URL не совпадает\n");
         }
 
-        if (!result.contains("/ViktoriiaBelousova/TestAQA")) {
+        if (!result.contains("/Dimon4532/AutoTest_New")) {
             errors.append("Path не совпадает\n");
         }
 
@@ -58,10 +58,10 @@ class SenderTest {
         Sender sender = new Sender("default.com", "/api", "default body");
 
         // Ожидаемый результат
-        String expected = "По данному пути: https://github.com/ViktoriiaBelousova/TestAQA , отправлен запрос с телом: body";
+        String expected = "По данному пути: https://github.com/Dimon4532/AutoTest_New, отправлен запрос с телом: body";
 
         // Фактический результат
-        String actual = sender.send("https://github.com", "/ViktoriiaBelousova/TestAQA", "body");
+        String actual = sender.send("https://github.com", "/Dimon4532/AutoTest_New", "body");
 
         // Проверка абсолютного совпадения
         assertEquals(expected, actual);
