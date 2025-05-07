@@ -1,10 +1,10 @@
+package org.example;
 
-
+import org.example.Main;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.Base64;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
