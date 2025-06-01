@@ -15,7 +15,20 @@ public class Main {
         // to see how IntelliJ IDEA suggests fixing it.
         System.out.println("Hello and welcome!");
 
-        cycle( 10);
+    //    cycle( 10);
+
+        // Используем TextSender
+        TextSender textSender = new TextSender("example.com",  "/api", """
+                Hellow, world!""");
+        System.out.println(textSender.send());
+
+        // Используем JsonSender
+        JsonSender jsonSender = new JsonSender( "api.example.com",  "/users",
+            "{\"name\":\"Json\",\"age\":30}");
+        System.out.println(jsonSender.send());
+        System.out.println("Pretty JSON:\n" + jsonSender.getPrettyJson());
+
+
     }
 
     // метод cycle_for
