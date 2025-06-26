@@ -4,15 +4,22 @@ public class TextSender extends HttpSender {
 
     private final String body;
 
-    public String getBody() {
-        return body;
-    }
-
     public TextSender(String url, String path, String body) {
         super(url, path);
         this.body = body != null ? body : "";
     }
 
+    public String getBody() {
+        return body;
+    }
+
+    /**
+     * Метод отправки запроса
+     *
+     * @param url Адрес, на который отправляется запрос
+     * @param path Путь, на который будет добавлен к url отправится запрос
+     * @param body Тело отправляемого запроса
+     */
     @Override
     public String send(String url, String path, String body) {
         // Используем переданные параметры или значения по умолчанию из полей класса
@@ -21,22 +28,10 @@ public class TextSender extends HttpSender {
         String actualBody = (body != null) ? body : this.body;
 
         // Формируем результирующую строку
-        return String.format("По данному пути: %s%s , отправлен запрос с телом: %s",
+        return String.format("По данному пути: %s%s отправлен запрос с телом: %s",
                 actualUrl,
                 actualPath,
                 actualBody);
-    }
-    // Перегруженные методы  send
-    public String send(String url, String path) {
-        return send(url, path, "test body");
-    }
-
-    public String send(String url) {
-        return send(url, "", "test body");
-    }
-
-    public String send() {
-        return send(null, null, null);
     }
 }
 

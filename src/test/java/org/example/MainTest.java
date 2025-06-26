@@ -2,10 +2,8 @@ package org.example;
 
 import org.example.Main;
 import org.junit.jupiter.api.Test;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MainTest {
@@ -23,7 +21,6 @@ class MainTest {
             System.setOut(new PrintStream(outputStream));
 
             // Вызываем тестируемый метод
-
             Main.main(new String[]{"test"});
 
             // Ожидаемый вывод (с учетом System.lineSeparator())
@@ -42,4 +39,3 @@ class MainTest {
         }
     }
 }
-
