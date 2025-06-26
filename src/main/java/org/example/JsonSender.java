@@ -7,7 +7,6 @@ public class JsonSender extends HttpSender{
         return jsonBody;
     }
 
-
     public JsonSender(String url, String path, String jsonBody) {
         super(url, path);
         validateJson(jsonBody); // Проверка валидности JSON
@@ -16,13 +15,12 @@ public class JsonSender extends HttpSender{
 
     private void validateJson(String json) {
         if (json != null && !json.isEmpty()) {
-            // Здесь может быть логиика проверки JSON
+            // Здесь может быть логика проверки валидности JSON
             if (!json.startsWith("{") && !json.startsWith("[")) {
                 throw new IllegalArgumentException("Некорректный формат JSON");
             }
         }
     }
-
 
     @Override
     public String send(String url, String path, String body) {
@@ -38,20 +36,7 @@ public class JsonSender extends HttpSender{
                 actualBody);
     }
 
-    // Перегруженные методы  send
-    public String send(String url, String path) {
-        return send(url, path, "{test: body}");
-    }
-
-    public String send(String url) {
-        return send(url, "", "{test: body}");
-    }
-
-    public String send() {
-        return send(null, null, null);
-    }
-
-    // Дополнительные методы работы с JSON
+    // Дополнительные методы для работы с JSON
     public String getPrettyJson() {
         // Здесь может быть логика для форматирования JSON
         return jsonBody.replace(",", ",\n").replace("{", "{\n").replace("}", "\n}");
